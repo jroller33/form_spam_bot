@@ -34,18 +34,25 @@ def generate_random_date(input):
 
     return f"{random_month}{random_day}{random_year}"    # MMDDYYYY
 
-def auto_tab_sleep():
+def tab_sleep():
     pyautogui.press('tab')
     time.sleep(0.5)     
 
-def auto_space_sleep():
+def space_sleep():
     pyautogui.press('space')
     time.sleep(0.5)
 
-def auto_write_sleep(string):
+def write_sleep(string):
     pyautogui.write(string)
     time.sleep(0.5)
 
+def down_sleep():
+    pyautogui.press('down')
+    time.sleep(0.5)
+
+def enter_sleep():
+    pyautogui.press('enter')
+    time.sleep(0.5)
 
 
 run_count = 0
@@ -81,20 +88,17 @@ try:
 
         time.sleep(5)       # let the site finish loading
         pyautogui.getActiveWindow().maximize()  # maximize Chrome window
-
         time.sleep(0.5)     
-        pyautogui.press('tab')
-        
-        time.sleep(0.5)     # enter child's first and last name
-        pyautogui.write(child_first_name)
-        time.sleep(0.5)
-        pyautogui.press('tab')
-        time.sleep(0.5)
-        pyautogui.write(last_name)
-        time.sleep(0.5)
-        pyautogui.press('tab')
 
-        time.sleep(0.5)     # select child's gender
+        # enter child's first and last name
+        tab_sleep()
+        write_sleep(child_first_name)
+        tab_sleep()
+        tab_sleep()
+        write_sleep(last_name)
+
+        # select child's gender
+        tab_sleep()
         if gender == 1:     
             pyautogui.press('space')
         elif gender == 2:
@@ -106,35 +110,31 @@ try:
         else:
             print(f"[!] ERROR in gender if/else")
         time.sleep(0.5)
-        pyautogui.press('tab')
 
-        time.sleep(0.5)     # enter child's DOB
-        pyautogui.write(child_DOB)  
-        time.sleep(0.5)
-        pyautogui.press('tab')
+        # enter child's DOB
+        tab_sleep() 
+        write_sleep(child_DOB)
 
-        time.sleep(0.5)       # select the year they're applying for     
-        pyautogui.press('space')
-        time.sleep(0.5)
+        # select the year they're applying for     
+        tab_sleep()       
+        space_sleep()
         for keypress in range(applying_for_year):
             pyautogui.press('down')
             time.sleep(0.5)
         pyautogui.press('enter')
         time.sleep(0.5)
-        pyautogui.press('tab')
 
-        time.sleep(0.5)     # select the grade they're applying for
-        pyautogui.press('space')
-        time.sleep(0.5)
+        # select the grade they're applying for
+        tab_sleep()    
+        space_sleep()
         for keypress in range(applying_for_grade):
             pyautogui.press('down')
             time.sleep(0.5)
         pyautogui.press('enter')
-
         time.sleep(0.5)
+
         for tab in range(4):
-            pyautogui.press('tab')
-            time.sleep(0.5)
+            tab_sleep()
         
         time.sleep(0.5)     # enter parent's first and last name
         pyautogui.write(parent_first_name)
