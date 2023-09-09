@@ -4,7 +4,7 @@
 
 ## Description
 
-Python bot that fills out forms using GUI automation.
+Python bot that fills out online forms using GUI automation.
 Made to be indistinguishable from a human user, from the target website's perspective.
 
 ## Usage
