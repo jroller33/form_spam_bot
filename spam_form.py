@@ -33,10 +33,9 @@ def generate_random_date(input):
 
     return f"{random_month}{random_day}{random_year}"    # MMDDYYYY
 
-# https://www.geeksforgeeks.org/python-generate-k-random-dates-between-two-other-dates/#
-
 try:
     while run_count < 1:      # run_count starts at 0 and goes up to 99
+
         print(f"[***] Starting new run at run_count: {run_count}")
 
         # first_name = random.choice(first_name_list)
@@ -56,13 +55,16 @@ try:
         applying_for_year = 2
         applying_for_grade = 10
 
-        time.sleep(1)
+        time.sleep(1)       # start new incognito Chrome window
         subprocess.Popen("start chrome /incognito https://portals.veracross.com/aidan/form/general_inquiry", shell=True)    # opens a new incognito Chrome window
 
-        time.sleep(5)
+        time.sleep(0.5)     # maximize Chrome window
+        pyautogui.getActiveWindow().maximize()
+
+        time.sleep(5)       # let the site finish loading
         pyautogui.press('tab')
         
-        time.sleep(0.5)
+        time.sleep(0.5)     # enter child's first and last name
         pyautogui.write(first_name)
         time.sleep(0.5)
         pyautogui.press('tab')
@@ -72,7 +74,7 @@ try:
         pyautogui.press('tab')
         time.sleep(0.5)
 
-        if gender == 1:
+        if gender == 1:     # select child's gender
             pyautogui.press('space')
         elif gender == 2:
             pyautogui.press('right')
@@ -86,15 +88,17 @@ try:
         pyautogui.press('tab')
         time.sleep(0.5)
 
-        pyautogui.write(child_DOB)
+        pyautogui.write(child_DOB)  # enter child's DOB
         time.sleep(0.5)
         pyautogui.press('tab')
         time.sleep(0.5)
         
-        pyautogui.press('space')
+        pyautogui.press('space')    # select the grade they're applying for
         time.sleep(0.5)
         for keypress in range(1, applying_for_grade+1):
             pyautogui.press('down')
+        time.sleep(0.5)
+        pyautogui.press('enter')
 
 
 
