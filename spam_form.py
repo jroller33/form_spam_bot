@@ -48,7 +48,8 @@ try:
         # print(f"{first_name},{last_name}. G={gender} D={child_DOB} AY={applying_for_year} AG={applying_for_grade}")
 
         
-        first_name = "Larry"
+        child_first_name = "Gerald"
+        parent_first_name = "Larry"
         last_name = "Goodgame"
         gender = 1
         child_DOB = "01231969"
@@ -58,23 +59,23 @@ try:
         time.sleep(1)       # start new incognito Chrome window
         subprocess.Popen("start chrome /incognito https://portals.veracross.com/aidan/form/general_inquiry", shell=True)    # opens a new incognito Chrome window
 
-        time.sleep(0.5)     # maximize Chrome window
-        pyautogui.getActiveWindow().maximize()
-
         time.sleep(5)       # let the site finish loading
+        pyautogui.getActiveWindow().maximize()  # maximize Chrome window
+
+        time.sleep(0.5)     
         pyautogui.press('tab')
         
         time.sleep(0.5)     # enter child's first and last name
-        pyautogui.write(first_name)
+        pyautogui.write(child_first_name)
         time.sleep(0.5)
         pyautogui.press('tab')
         time.sleep(0.5)
         pyautogui.write(last_name)
         time.sleep(0.5)
         pyautogui.press('tab')
-        time.sleep(0.5)
 
-        if gender == 1:     # select child's gender
+        time.sleep(0.5)     # select child's gender
+        if gender == 1:     
             pyautogui.press('space')
         elif gender == 2:
             pyautogui.press('right')
@@ -86,20 +87,53 @@ try:
             print(f"[!] ERROR in gender if/else")
         time.sleep(0.5)
         pyautogui.press('tab')
-        time.sleep(0.5)
 
-        pyautogui.write(child_DOB)  # enter child's DOB
+        time.sleep(0.5)     # enter child's DOB
+        pyautogui.write(child_DOB)  
         time.sleep(0.5)
         pyautogui.press('tab')
+
+        time.sleep(0.5)       # select the year they're applying for     
+        pyautogui.press('space')
         time.sleep(0.5)
-        
-        pyautogui.press('space')    # select the grade they're applying for
+        for keypress in range(1, applying_for_year+1):
+            pyautogui.press('down')
+            time.sleep(0.5)
+        pyautogui.press('enter')
+        time.sleep(0.5)
+        pyautogui.press('tab')
+
+        time.sleep(0.5)     # select the grade they're applying for
+        pyautogui.press('space')
         time.sleep(0.5)
         for keypress in range(1, applying_for_grade+1):
             pyautogui.press('down')
-        time.sleep(0.5)
+            time.sleep(0.5)
         pyautogui.press('enter')
 
+        time.sleep(0.5)
+        for tab in range(4):
+            pyautogui.press('tab')
+            time.sleep(0.5)
+        
+        # parent first name
+        
+        time.sleep(0.5)     # enter parent's first and last name
+        pyautogui.write(parent_first_name)
+        time.sleep(0.5)
+        pyautogui.press('tab')
+        time.sleep(0.5)
+        pyautogui.write(last_name)
+        time.sleep(0.5)
+        pyautogui.press('tab')
+
+        # parent last name
+
+        # select relationship
+
+        # enter email
+
+        # enter phone
 
 
 
