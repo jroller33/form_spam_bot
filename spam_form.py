@@ -8,10 +8,11 @@ ts = datetime.now()
 timestamp_str = f'{ts:%Y-%m-%d--%H-%M-%S}--[YMD-hms]'
 
 
-run_count = 0
 
 first_name_list = ["Tom", "Jason", "Larry", "Reginald", "Helene", "Esther"]
 last_name_list = ["Jenkins", "Warnix", "Goodgame", "Beauregard", "Jones", "Patel"]
+
+
 
 def generate_random_date(input):
     random_month = str(random.choice(range(1, 13)))
@@ -32,6 +33,22 @@ def generate_random_date(input):
         random_month = f"0{random_month}"
 
     return f"{random_month}{random_day}{random_year}"    # MMDDYYYY
+
+def auto_tab_sleep():
+    pyautogui.press('tab')
+    time.sleep(0.5)     
+
+def auto_space_sleep():
+    pyautogui.press('space')
+    time.sleep(0.5)
+
+def auto_write_sleep(string):
+    pyautogui.write(string)
+    time.sleep(0.5)
+
+
+
+run_count = 0
 
 try:
     while run_count < 1:      # run_count starts at 0 and goes up to 99
@@ -55,6 +72,9 @@ try:
         child_DOB = "01231969"
         applying_for_year = 2
         applying_for_grade = 10
+        relationship = 2
+
+
 
         time.sleep(1)       # start new incognito Chrome window
         subprocess.Popen("start chrome /incognito https://portals.veracross.com/aidan/form/general_inquiry", shell=True)    # opens a new incognito Chrome window
@@ -96,7 +116,7 @@ try:
         time.sleep(0.5)       # select the year they're applying for     
         pyautogui.press('space')
         time.sleep(0.5)
-        for keypress in range(1, applying_for_year+1):
+        for keypress in range(applying_for_year):
             pyautogui.press('down')
             time.sleep(0.5)
         pyautogui.press('enter')
@@ -106,7 +126,7 @@ try:
         time.sleep(0.5)     # select the grade they're applying for
         pyautogui.press('space')
         time.sleep(0.5)
-        for keypress in range(1, applying_for_grade+1):
+        for keypress in range(applying_for_grade):
             pyautogui.press('down')
             time.sleep(0.5)
         pyautogui.press('enter')
@@ -115,8 +135,6 @@ try:
         for tab in range(4):
             pyautogui.press('tab')
             time.sleep(0.5)
-        
-        # parent first name
         
         time.sleep(0.5)     # enter parent's first and last name
         pyautogui.write(parent_first_name)
@@ -127,9 +145,18 @@ try:
         time.sleep(0.5)
         pyautogui.press('tab')
 
-        # parent last name
-
         # select relationship
+        
+        time.sleep(0.5)      
+        pyautogui.press('space')
+        time.sleep(0.5)
+        for keypress in range(relationship):
+            pyautogui.press('down')
+            time.sleep(0.5)
+        pyautogui.press('enter')
+        time.sleep(0.5)
+        pyautogui.press('tab')
+
 
         # enter email
 
