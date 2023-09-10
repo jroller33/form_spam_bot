@@ -4,35 +4,10 @@ import time
 import random
 from datetime import datetime
 
+
 ts = datetime.now()
 timestamp_str = f'{ts:%Y-%m-%d--%H-%M-%S}--[YMD-hms]'
 
-
-
-first_name_list = ["Tom", "Jason", "Larry", "Reginald", "Helene", "Esther"]
-last_name_list = ["Jenkins", "Warnix", "Goodgame", "Beauregard", "Jones", "Patel"]
-
-
-
-def generate_random_date(input):
-    random_month = str(random.choice(range(1, 13)))
-    random_day = str(random.choice(range(1, 29)))
-
-    # validate input passed to the function. This decides the range for the random year
-    if input == "child":
-        random_year = str(random.choice(range(2013, 2019)))
-    elif input == "parent":
-        random_year = str(random.choice(range(1970, 1990)))
-    else:
-        print(f"[!] ERROR in generate_random_date() input")
-
-    # if the day or month is only one digit, add a 0 in front of it (all random days and months need to be 2 digits)
-    if len(random_day) == 1:
-        random_day = f"0{random_day}"
-    if len(random_month) == 1:
-        random_month = f"0{random_month}"
-
-    return f"{random_month}{random_day}{random_year}"    # MMDDYYYY
 
 def tab_sleep():
     pyautogui.press('tab')
@@ -53,6 +28,24 @@ def down_sleep():
 def enter_sleep():
     pyautogui.press('enter')
     time.sleep(0.5)
+    
+def generate_random_date(input):
+    random_month = str(random.choice(range(1, 13)))
+    random_day = str(random.choice(range(1, 29)))
+    
+    if input == "child":    # validate input passed to the function. This decides the range for the random year
+        random_year = str(random.choice(range(2013, 2019)))
+    elif input == "parent":
+        random_year = str(random.choice(range(1970, 1990)))
+    else:
+        print(f"[!] ERROR in generate_random_date() input")
+
+    if len(random_day) == 1:    # if the day or month is only one digit, add a 0 in front of it (MMDDYYYY)
+        random_day = f"0{random_day}"
+    if len(random_month) == 1:
+        random_month = f"0{random_month}"
+
+    return f"{random_month}{random_day}{random_year}"    # MMDDYYYY
 
 
 run_count = 0
@@ -82,18 +75,16 @@ try:
         relationship = 2
 
 
-
         time.sleep(1)       # start new incognito Chrome window
         subprocess.Popen("start chrome /incognito https://portals.veracross.com/aidan/form/general_inquiry", shell=True)    # opens a new incognito Chrome window
-
         time.sleep(5)       # let the site finish loading
         pyautogui.getActiveWindow().maximize()  # maximize Chrome window
         time.sleep(0.5)     
 
+
         # enter child's first and last name
         tab_sleep()
         write_sleep(child_first_name)
-        tab_sleep()
         tab_sleep()
         write_sleep(last_name)
 
@@ -119,43 +110,32 @@ try:
         tab_sleep()       
         space_sleep()
         for keypress in range(applying_for_year):
-            pyautogui.press('down')
-            time.sleep(0.5)
-        pyautogui.press('enter')
-        time.sleep(0.5)
+            down_sleep()
+        enter_sleep()
 
         # select the grade they're applying for
         tab_sleep()    
         space_sleep()
         for keypress in range(applying_for_grade):
-            pyautogui.press('down')
-            time.sleep(0.5)
-        pyautogui.press('enter')
-        time.sleep(0.5)
+            down_sleep()
+        enter_sleep()
 
         for tab in range(4):
             tab_sleep()
         
-        time.sleep(0.5)     # enter parent's first and last name
-        pyautogui.write(parent_first_name)
-        time.sleep(0.5)
-        pyautogui.press('tab')
-        time.sleep(0.5)
-        pyautogui.write(last_name)
-        time.sleep(0.5)
-        pyautogui.press('tab')
+
+        # enter parent's first and last name
+        write_sleep(parent_first_name)     
+        tab_sleep()
+        write_sleep(last_name)
+        tab_sleep()
 
         # select relationship
-        
-        time.sleep(0.5)      
-        pyautogui.press('space')
-        time.sleep(0.5)
+        space_sleep()
         for keypress in range(relationship):
-            pyautogui.press('down')
-            time.sleep(0.5)
-        pyautogui.press('enter')
-        time.sleep(0.5)
-        pyautogui.press('tab')
+            down_sleep()
+        enter_sleep()
+        tab_sleep()
 
 
         # enter email

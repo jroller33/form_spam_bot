@@ -5,13 +5,16 @@ import time
 
 print(f"[***] Starting new run ")
 
+subprocess.Popen("start excel", shell=True)    # opens a new excel window, it's good for visualizing keypresses
+time.sleep(2)     
+pyautogui.getActiveWindow().maximize()  # maximize window
+time.sleep(2)
+
+
 tabs = 5
 downs = 2
 
 
-subprocess.Popen("start excel", shell=True)    # opens a new excel window, it's good for visualizing keypresses
-
-time.sleep(5)
 
 for keypress in range(tabs):
     pyautogui.press('tab')
