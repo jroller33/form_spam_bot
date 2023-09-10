@@ -2,6 +2,13 @@
 
 .vscode
 
+.txt
+.bak
+.dat
+.dir
+
+
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

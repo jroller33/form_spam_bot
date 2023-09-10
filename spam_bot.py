@@ -13,9 +13,6 @@ from custom_functions import generate_phone
 from custom_functions import generate_random_date
 
 
-ts = datetime.now()
-timestamp_str = f'{ts:%Y-%m-%d--%H-%M-%S}--[YMD-hms]'
-
 first_name_list = ["Tom", "Jason", "Larry", "Reginald", "Helene", "Esther"]
 last_name_list = ["Jenkins", "Warnix", "Goodgame", "Beauregard", "Jones", "Patel"]
 
@@ -76,6 +73,11 @@ try:
 
         print(f"[***] Starting new run at run_count: {run_count}")
 
+        
+        now = datetime.now()
+        timestamp_str = f'{now:%m.%d.%Y_%H.%M.%S}'
+        current_date = f'{now:%m.%d.%Y}'
+
         # initialize the variables. every time this loop runs they will have different values
         child_first_name = random.choice(first_name_list)
         parent_first_name = random.choice(first_name_list)
@@ -85,7 +87,10 @@ try:
         applying_for_year = random.choice(range(1,3))
         applying_for_grade = random.choice(range(1,13))
         relationship = random.choice(range(1, 3))
-        print(f"{child_first_name},{last_name}. G={gender} D={child_DOB} AY={applying_for_year} AG={applying_for_grade}")
+        email = generate_email(parent_first_name, last_name)
+        phone = generate_phone()
+
+        print(f"{child_first_name},{last_name}.{parent_first_name} G={gender} D={child_DOB} AY={applying_for_year} AG={applying_for_grade} {relationship} {email} {phone}")
 
 
         time.sleep(1)       # start new incognito Chrome window
@@ -93,6 +98,12 @@ try:
         time.sleep(5)       # let the site finish loading
         pyautogui.getActiveWindow().maximize()  # maximize Chrome window
         time.sleep(0.5)     
+
+        
+        # log = open('run_number', 'w')
+        # log")
+        
+        # log.close()
 
 
         # enter child's first and last name
@@ -154,11 +165,11 @@ try:
 
 
         # enter email
-        write_sleep(generate_email(parent_first_name, last_name))
+        write_sleep(email)
         tab_sleep()
 
         # enter phone
-        write_sleep(generate_phone())
+        write_sleep(phone)
         tab_sleep()
 
         # select 'don't add another contact'
@@ -172,8 +183,13 @@ try:
         # tab_sleep()        # select 'submit'
         # enter_sleep()      # SUBMIT FORM
 
+
+        log = open(current_date, 'a')   # filename is current_date. write in 'append' mode
+        log.write(f"[{timestamp_str}]\t C:{child_first_name},{last_name}\t P:{parent_first_name}\t {email}-{phone}\t DOB:{child_DOB} Gender:{gender}\t Y/G:{applying_for_year}-{applying_for_grade} Rel:{relationship}\n\n")
+        log.close()
+
         time.sleep(10)      # wait for the form to submit
-        pyautogui.getActiveWindow().close()  # close the Chrome window
+        # pyautogui.getActiveWindow().close()  # close the Chrome window
         run_count += 1
 
 except KeyboardInterrupt:
