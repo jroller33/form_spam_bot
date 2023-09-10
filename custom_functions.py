@@ -27,6 +27,11 @@ def generate_email(first_name, last_name):
     num = str(random.choice(range(1, 99)))
     return f"{first_name}{last_name}{num}@gmail.com"
 
+def generate_phone():
+    num = str(random.choice(range(2345678, 8765432)))       # 202-9999999
+    area_code = "202"
+    return f"{area_code}{num}"
+
 def generate_random_date(input):
     random_month = str(random.choice(range(1, 13)))
     random_day = str(random.choice(range(1, 29)))
