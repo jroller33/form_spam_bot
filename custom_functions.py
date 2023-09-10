@@ -23,6 +23,9 @@ def enter_sleep():
     pyautogui.press('enter')
     time.sleep(0.5)
     
+def generate_email(first_name, last_name):
+    num = str(random.choice(range(1, 99)))
+    return f"{first_name}{last_name}{num}@gmail.com"
 
 def generate_random_date(input):
     random_month = str(random.choice(range(1, 13)))

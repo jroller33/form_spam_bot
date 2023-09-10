@@ -47,6 +47,10 @@ def generate_random_date(input):
 
     return f"{random_month}{random_day}{random_year}"    # MMDDYYYY
 
+def generate_email(first_name, last_name):
+    num = str(random.choice(range(1, 99)))
+    return f"{first_name}{last_name}{num}@gmail.com"
+
 
 run_count = 0
 
@@ -129,6 +133,8 @@ try:
         tab_sleep()
         write_sleep(last_name)
         tab_sleep()
+        tab_sleep()
+
 
         # select relationship
         space_sleep()
@@ -139,7 +145,7 @@ try:
 
 
         # enter email
-
+        write_sleep(generate_email(parent_first_name, last_name))
         # enter phone
 
 
