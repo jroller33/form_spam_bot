@@ -25,7 +25,7 @@ def enter_sleep():
     
 def generate_email(first_name, last_name):
     num = str(random.choice(range(1, 99)))
-    return f"{first_name}{last_name}{num}@gmail.com"
+    return f"{first_name}{last_name}{num}@gmail.com".lower()
 
 def generate_phone():
     num = str(random.choice(range(2345678, 8765432)))       # 202-9999999
