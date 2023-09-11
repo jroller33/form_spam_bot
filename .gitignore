@@ -1,3 +1,5 @@
+hidden.py
+targets.txt
 (IGNORE)
 
 .vscode
@@ -7,7 +9,6 @@
 .dat
 .dir
 
-targets.txt
 
 
 # Byte-compiled / optimized / DLL files
