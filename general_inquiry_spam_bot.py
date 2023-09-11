@@ -3,17 +3,10 @@ import subprocess
 import time
 import random
 from datetime import datetime
-from custom_functions import tab_sleep
-from custom_functions import space_sleep
-from custom_functions import write_sleep
-from custom_functions import down_sleep
-from custom_functions import enter_sleep
-from custom_functions import generate_email
-from custom_functions import generate_phone
-from custom_functions import generate_random_date
 
-from names import first_name_list
-from names import last_name_list
+from custom_functions import tab_sleep, space_sleep, write_sleep, down_sleep, enter_sleep
+from custom_functions import generate_email, generate_phone, generate_random_date
+from names import first_name_list, last_name_list
 
 
 run_count = 0
@@ -48,12 +41,6 @@ try:
         time.sleep(5)       # let the site finish loading
         pyautogui.getActiveWindow().maximize()  # maximize Chrome window
         time.sleep(0.5)     
-
-        
-        # log = open('run_number', 'w')
-        # log")
-        
-        # log.close()
 
 
         # enter child's first and last name
