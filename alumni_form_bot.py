@@ -28,7 +28,7 @@ try:
         phone = generate_phone()
 
         history_choice = random.choice(range(2))
-        neg_history_choice = (1 - history_choice)
+        neg_history_choice = (2 - history_choice)
 
         print(f"[*] {first_name},{last_name} {email} {phone}")
 
