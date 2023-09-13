@@ -27,7 +27,7 @@ try:
         email = generate_email(first_name, last_name)
         phone = generate_phone()
 
-        history_choice = random.choice(range(1))
+        history_choice = random.choice(range(2))
         neg_history_choice = (1 - history_choice)
 
         print(f"[*] {first_name},{last_name} {email} {phone}")
@@ -41,6 +41,28 @@ try:
 
         for tab in range(17):
             tab_sleep()
+
+        for choice in range(history_choice):
+            tab_rand_sleep()
+        space_rand_sleep()
+
+        tab_rand_sleep()
+        tab_rand_sleep()
+
+        write_rand_sleep(first_name)
+        tab_rand_sleep()
+        write_rand_sleep(last_name)
+
+        for tab in range(4):
+            tab_rand_sleep()
+
+        write_rand_sleep(email)
+
+        for tab in range(21):
+            tab_rand_sleep()        
+
+        enter_rand_sleep()          # SUBMIT
+        time.sleep(random.uniform(2, 7))
 
         # write_rand_sleep(email)
 
