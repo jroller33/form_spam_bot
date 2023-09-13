@@ -4,11 +4,11 @@ import time
 import random
 from datetime import datetime
 
-from custom_functions import tab_sleep, space_sleep, write_sleep, down_sleep, enter_sleep
+from custom_functions import tab_rand_sleep, space_rand_sleep, write_rand_sleep, down_rand_sleep, enter_rand_sleep
 from custom_functions import generate_email, generate_phone, generate_random_date
-from names import first_name_list, last_name_list
 
-from hidden import url
+from names import first_name_list, last_name_list
+from hidden import volunteer_form_url
 
 run_count = 0
 
@@ -17,7 +17,6 @@ try:
 
         print(f"[***] Starting new run at run_count: {run_count}")
 
-        
         now = datetime.now()
         timestamp_str = f'{now:%m.%d.%Y_%H.%M.%S}'
         current_date = f'{now:%m.%d.%Y}'
@@ -43,34 +42,34 @@ try:
 
 
         time.sleep(1)       # start new incognito Chrome window
-        subprocess.Popen(f"start chrome /incognito {url}", shell=True)    # opens a new incognito Chrome window
+        subprocess.Popen(f"start chrome /incognito {volunteer_form_url}", shell=True)    # opens a new incognito Chrome window
         time.sleep(5)       # let the site finish loading
         pyautogui.getActiveWindow().maximize()  # maximize Chrome window
         time.sleep(0.5)     
 
         for tab in range(3):
-            tab_sleep()
-        write_sleep(email)
+            tab_rand_sleep()
+        write_rand_sleep(email)
 
-        tab_sleep()
-        write_sleep(full_name)
+        tab_rand_sleep()
+        write_rand_sleep(full_name)
 
-        tab_sleep()
-        write_sleep(phone)
+        tab_rand_sleep()
+        write_rand_sleep(phone)
 
-        tab_sleep()
-        space_sleep()
+        tab_rand_sleep()
+        space_rand_sleep()
 
         for tab in range(5):
-            tab_sleep()
+            tab_rand_sleep()
 
         for choice in range(event_choice):
-            tab_sleep()
-        space_sleep()
+            tab_rand_sleep()
+        space_rand_sleep()
 
         for tab in range(neg_event_choice):
-            tab_sleep()
-        space_sleep()   # selects first selection of 'Committees' (PA Leadership)
+            tab_rand_sleep()
+        space_rand_sleep()   # selects first selection of 'Committees' (PA Leadership)
 
         # Evening of the arts worked
 
@@ -95,13 +94,13 @@ except KeyboardInterrupt:
 
 
 #         # enter child's first and last name
-#         tab_sleep()
-#         write_sleep(child_first_name)
-#         tab_sleep()
-#         write_sleep(last_name)
+#         tab_rand_sleep()
+#         write_rand_sleep(child_first_name)
+#         tab_rand_sleep()
+#         write_rand_sleep(last_name)
 
 #         # select child's gender
-#         tab_sleep()
+#         tab_rand_sleep()
 #         if gender == 1:     
 #             pyautogui.press('space')
 #         elif gender == 2:
@@ -115,60 +114,60 @@ except KeyboardInterrupt:
 #         time.sleep(0.5)
 
 #         # enter child's DOB
-#         tab_sleep() 
-#         write_sleep(child_DOB)
+#         tab_rand_sleep() 
+#         write_rand_sleep(child_DOB)
 
 #         # select the year they're applying for     
-#         tab_sleep()       
-#         space_sleep()
+#         tab_rand_sleep()       
+#         space_rand_sleep()
 #         for keypress in range(applying_for_year):
 #             down_sleep()
 #         enter_sleep()
 
 #         # select the grade they're applying for
-#         tab_sleep()    
-#         space_sleep()
+#         tab_rand_sleep()    
+#         space_rand_sleep()
 #         for keypress in range(applying_for_grade):
 #             down_sleep()
 #         enter_sleep()
 
 #         for tab in range(4):
-#             tab_sleep()
+#             tab_rand_sleep()
         
 
 #         # enter parent's first and last name
-#         write_sleep(parent_first_name)     
-#         tab_sleep()
-#         write_sleep(last_name)
-#         tab_sleep()
-#         tab_sleep()
+#         write_rand_sleep(parent_first_name)     
+#         tab_rand_sleep()
+#         write_rand_sleep(last_name)
+#         tab_rand_sleep()
+#         tab_rand_sleep()
 
 
 #         # select relationship
-#         space_sleep()
+#         space_rand_sleep()
 #         for keypress in range(relationship):
 #             down_sleep()
 #         enter_sleep()
-#         tab_sleep()
+#         tab_rand_sleep()
 
 
 #         # enter email
-#         write_sleep(email)
-#         tab_sleep()
+#         write_rand_sleep(email)
+#         tab_rand_sleep()
 
 #         # enter phone
-#         write_sleep(phone)
-#         tab_sleep()
+#         write_rand_sleep(phone)
+#         tab_rand_sleep()
 
 #         # select 'don't add another contact'
-#         space_sleep()
+#         space_rand_sleep()
         
 #         # select interests
 #         for choice in range(4):
-#             tab_sleep()
-#             space_sleep()
+#             tab_rand_sleep()
+#             space_rand_sleep()
 
-#         # tab_sleep()        # select 'submit'
+#         # tab_rand_sleep()        # select 'submit'
 #         # enter_sleep()      # SUBMIT FORM
 
 

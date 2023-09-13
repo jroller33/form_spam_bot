@@ -22,7 +22,33 @@ def down_sleep():
 def enter_sleep():
     pyautogui.press('enter')
     time.sleep(0.5)
-    
+
+# ---------------------------------------
+
+# these functions sleep for a random period of time. This is so the bot will mimic the way humans pause for random periods of time while filling out the form. The goal is for the bot to be indistinguishable from a human user, so it needs to mimic human behavior
+
+def tab_rand_sleep():
+    pyautogui.press('tab')
+    time.sleep(random.uniform(0.5, 3))
+
+def space_rand_sleep():
+    pyautogui.press('space')
+    time.sleep(random.uniform(0.5, 3))
+
+def write_rand_sleep(string):
+    pyautogui.write(string)
+    time.sleep(random.uniform(0.5, 3))
+
+def down_rand_sleep():
+    pyautogui.press('down')
+    time.sleep(random.uniform(0.5, 3))
+
+def enter_rand_sleep():
+    pyautogui.press('enter')
+    time.sleep(random.uniform(0.5, 3))
+ 
+# --------------------------------------
+
 def generate_email(first_name, last_name):
     num = str(random.choice(range(1, 99)))
     return f"{first_name}{last_name}{num}@gmail.com".lower()
