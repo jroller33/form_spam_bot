@@ -24,9 +24,11 @@ try:
         # initialize the variables. every time this loop runs they will have different values
         first_name = random.choice(first_name_list)
         last_name = random.choice(last_name_list)
-
         email = generate_email(first_name, last_name)
         phone = generate_phone()
+
+        history_choice = random.choice(range(1))
+        neg_history_choice = (1 - history_choice)
 
         print(f"[*] {first_name},{last_name} {email} {phone}")
 
@@ -39,6 +41,7 @@ try:
 
         for tab in range(17):
             tab_sleep()
+
         # write_rand_sleep(email)
 
         # tab_rand_sleep()

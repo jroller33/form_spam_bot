@@ -12,7 +12,7 @@ def space_sleep():
     time.sleep(0.5)
 
 def write_sleep(string):
-    pyautogui.write(string)
+    pyautogui.write(string, random.uniform(0.1, 1))
     time.sleep(0.5)
 
 def down_sleep():
@@ -36,7 +36,7 @@ def space_rand_sleep():
     time.sleep(random.uniform(0.5, 3))
 
 def write_rand_sleep(string):
-    pyautogui.write(string)
+    pyautogui.write(string, random.uniform(0.1, 1))
     time.sleep(random.uniform(0.5, 3))
 
 def down_rand_sleep():
