@@ -28,7 +28,7 @@ try:
         email = generate_email(first_name, last_name)
         phone = generate_phone()
         # history_choice = random.choice(range(1,3))    
-        history_choice = 1
+        history_choice = 2
 
 
 
