@@ -4,7 +4,8 @@ import time
 import random
 from datetime import datetime
 
-from custom_functions import tab_sleep, tab_rand_sleep, space_rand_sleep, write_rand_sleep, down_rand_sleep, enter_rand_sleep, generate_email, generate_phone, generate_random_date
+
+from custom_functions import tab_sleep, tab_rand_sleep, space_rand_sleep, write_rand_sleep, down_rand_sleep, enter_rand_sleep, generate_email, generate_phone, generate_relationship, generate_address
 
 from names import first_name_list, last_name_list
 from hidden import test_special_url
@@ -19,68 +20,69 @@ try:
         start_now = datetime.now()
         start_timestamp_str = f'{start_now:%H.%M.%S_%m.%d.%Y}'
         current_date = f'{start_now:%m.%d.%Y}'
-        print(f"[***] Starting new ALUMNI run at run_count:{run_count}, max_loop:{max_loop}, rand_run_id:{rand_run_id} [{start_timestamp_str}]")
+        print(f"[***] Starting new SPECIAL run at run_count:{run_count}, max_loop:{max_loop}, rand_run_id:{rand_run_id} [{start_timestamp_str}]")
 
         # initialize the variables. every time this loop runs they will have different values
         first_name = random.choice(first_name_list)
         last_name = random.choice(last_name_list)
         student_name = f"{random.choice(first_name_list)} {random.choice(last_name_list)}"
+
         email = generate_email(first_name, last_name)
         phone = generate_phone()
-        history_choice = random.choice(range(1,3))
+        relationship = generate_relationship()
 
-        print(f"[*] {first_name}, {last_name} - HC:{history_choice} E:{email} P:{phone}")
+        address = generate_address()
+        address1 = address["address1"]
+        city = address["city"]
+        state = address["state"]
+        postal_code = address["postalCode"]
+
+        print(f"[*] {address1}, {city}, {state} {postal_code}")
+    
+        # history_choice = random.choice(range(1,3))
+
+        print(f"[*] STU:{student_name} PAR:{first_name}, {last_name} - R:{relationship} E:{email} P:{phone}\n")
 
 
         time.sleep(5)       # start new incognito Chrome window
         subprocess.Popen(f"start chrome /incognito {test_special_url}", shell=True)    # opens a new incognito Chrome window
         time.sleep(5)       # let the site finish loading
         pyautogui.getActiveWindow().maximize()  # maximize Chrome window
-        time.sleep(0.5)
+        time.sleep(5)
         pyautogui.press('pageup')
         time.sleep(0.5)
 
         pyautogui.click(866,606)
         time.sleep(random.uniform(1,6))
         
-        write_rand_sleep()
+        write_rand_sleep(student_name)
+        tab_rand_sleep()
+        write_rand_sleep(first_name)
+        tab_rand_sleep()
+        write_rand_sleep(last_name)
+        tab_rand_sleep()
+        write_rand_sleep(email)
+        tab_rand_sleep()
+        write_rand_sleep(phone)
+        tab_rand_sleep()
+        write_rand_sleep(relationship)
+        tab_rand_sleep()
+        write_rand_sleep(address1)
+        tab_rand_sleep()
+        write_rand_sleep(city)
+        tab_rand_sleep()
+        write_rand_sleep(state)
+        tab_rand_sleep()
+        write_rand_sleep(postal_code)
 
-
-        # if history_choice == 1:
-        #     tab_range = 19
-        #     space_rand_sleep()
-        # elif history_choice == 2:
-        #     tab_range = 18
-        #     down_rand_sleep()
-        # else:
-        #     print("!*!*!*!  ERROR IN HISTORY CHOICE  !*!*!*!*!")
-
-        # print(f"[*] Tab Range = {tab_range}")
-
-        # tab_rand_sleep()
-        # tab_rand_sleep()
-
-        # write_rand_sleep(first_name)
-        # tab_rand_sleep()
-        # write_rand_sleep(last_name)
-
-        # for tab in range(4):
-        #     tab_rand_sleep()
-
-        # write_rand_sleep(email)
-
-        # tab_rand_sleep()
-        # tab_rand_sleep()
-        # write_rand_sleep(phone)
-
-        # for tab in range(tab_range):           # 18 for HC 2, 19 for HC 1
-        #     tab_rand_sleep()
-
-        # enter_rand_sleep()          # SUBMIT THE FORM
+        for tab in range(3):
+            tab_rand_sleep()
+        space_rand_sleep()
+        tab_rand_sleep()
+        # enter_rand_sleep()  # SUBMIT FORM
 
         # time.sleep(5)      # wait for the form to submit
         # pyautogui.getActiveWindow().close()  # close the Chrome window
-
 
         # end_now = datetime.now()
         # end_timestamp_str = f'{end_now:%H.%M.%S_%m.%d.%Y}'

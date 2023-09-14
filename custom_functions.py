@@ -1,6 +1,7 @@
 import pyautogui
 import random
 import time
+from random_address import real_random_address_by_postal_code
 
 
 def tab_sleep():
@@ -29,34 +30,50 @@ def enter_sleep():
 
 def tab_rand_sleep():
     pyautogui.press('tab')
-    time.sleep(random.uniform(0.5, 3))
+    time.sleep(random.uniform(0.5, 2))
 
 def space_rand_sleep():
     pyautogui.press('space')
-    time.sleep(random.uniform(0.5, 3))
+    time.sleep(random.uniform(0.5, 2))
 
 def write_rand_sleep(string):
-    pyautogui.write(string, random.uniform(0.1, 1))
-    time.sleep(random.uniform(0.5, 3))
+    pyautogui.write(string, random.uniform(0.1, 0.6))
+    time.sleep(random.uniform(0.5, 2))
 
 def down_rand_sleep():
     pyautogui.press('down')
-    time.sleep(random.uniform(0.5, 3))
+    time.sleep(random.uniform(0.5, 2))
 
 def enter_rand_sleep():
     pyautogui.press('enter')
-    time.sleep(random.uniform(0.5, 3))
+    time.sleep(random.uniform(0.5, 2))
  
 # --------------------------------------
-
+email_providers = ["@gmail.com", "@outlook.com", "@yahoo.com", "@protonmail.com", "@aol.com", "@icloud.com"]
 def generate_email(first_name, last_name):
     num = str(random.choice(range(1, 99)))
-    return f"{first_name}{last_name}{num}@gmail.com".lower()
+    provider = random.choice(email_providers)
+    return f"{first_name}{last_name}{num}{provider}".lower()
 
+
+area_codes = ["202", "771", "276", "434", "804", "240", "301", "410", "443", "667"]
 def generate_phone():
     num = str(random.choice(range(2345678, 8765432)))       # 202-9999999
-    area_code = "202"
+    area_code = random.choice(area_codes)
     return f"{area_code}{num}"
+
+
+relatives = ["grandparent", "godparent", "uncle", "aunt", "great uncle", "great aunt"]
+def generate_relationship():
+    return random.choice(relatives)
+
+
+zip_codes = ["20001", "20002", "20009", "20010", "20012", "20017", "20018", "20020", "20032", "20036"]
+def generate_address():
+    zip_code = random.choice(zip_codes)
+    address = real_random_address_by_postal_code(zip_code)
+    return address
+
 
 def generate_random_date(input):
     random_month = str(random.choice(range(1, 13)))
