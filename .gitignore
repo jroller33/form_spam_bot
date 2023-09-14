@@ -1,14 +1,14 @@
 hidden.py
 targets.txt
-(IGNORE)
+old_log_files/
 
 .vscode
+(IGNORE)
 
 .txt
 .bak
 .dat
 .dir
-
 
 
 # Byte-compiled / optimized / DLL files
