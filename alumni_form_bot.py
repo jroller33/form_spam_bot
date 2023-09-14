@@ -85,7 +85,7 @@ try:
         end_timestamp_str = f'{end_now:%H.%M.%S_%m.%d.%Y}'
         print(f"[*] This run: {run_count} has finished at [{end_timestamp_str}]\n\n")
 
-        log = open(f"ALUMNI_BOT_{current_date}_{rand_run_id}", 'a')
+        log = open(f"ALUMNI_BOT_{current_date}_{rand_run_id}.txt", 'a')
         log.write(f"Start:[{start_timestamp_str}] - End:[{end_timestamp_str}]\t {first_name}, {last_name} - E:{email}\t P:{phone}\t HC:{history_choice} TR:{tab_range}\t (if HC=1, TR=19. if HC=2, TR=18)\n\n")
         log.close()
         
