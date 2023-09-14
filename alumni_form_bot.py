@@ -10,27 +10,23 @@ from names import first_name_list, last_name_list
 from hidden import alumni_form_url
 
 run_count = 0
-max_loop = random.choice(range(50,100))
+# max_loop = random.choice(range(50,100))
+max_loop = 334
 rand_run_id = random.choice(range(1,10000))
 
 try:
-    while run_count < 4:      # run_count starts at 0 and is incremented at the end of this loop
-    # while run_count < max_loop:      # run_count starts at 0 and is incremented at the end of this loop
-
+    while run_count < max_loop:      # run_count starts at 0 and is incremented at the end of this loop
         start_now = datetime.now()
         start_timestamp_str = f'{start_now:%H.%M.%S_%m.%d.%Y}'
         current_date = f'{start_now:%m.%d.%Y}'
-        print(f"[***] Starting new ALUMNI run at run_count: {run_count} [{start_timestamp_str}]")
+        print(f"[***] Starting new ALUMNI run at run_count:{run_count}, max_loop:{max_loop}, rand_run_id:{rand_run_id} [{start_timestamp_str}]")
 
         # initialize the variables. every time this loop runs they will have different values
         first_name = random.choice(first_name_list)
         last_name = random.choice(last_name_list)
         email = generate_email(first_name, last_name)
         phone = generate_phone()
-        # history_choice = random.choice(range(1,3))    
-        history_choice = 2
-
-
+        history_choice = random.choice(range(1,3))
 
         print(f"[*] {first_name}, {last_name} - HC:{history_choice} E:{email} P:{phone}")
 
@@ -42,7 +38,7 @@ try:
         time.sleep(0.5)
 
 
-        for tab in range(17):
+        for tab in range(17):   # move cursor to first field
             tab_sleep()
 
         if history_choice == 1:
@@ -86,7 +82,7 @@ try:
         print(f"[*] This run: {run_count} has finished at [{end_timestamp_str}]\n\n")
 
         log = open(f"ALUMNI_BOT_{current_date}_{rand_run_id}.txt", 'a')
-        log.write(f"Start:[{start_timestamp_str}] - End:[{end_timestamp_str}]\t {first_name}, {last_name} - E:{email}\t P:{phone}\t HC:{history_choice} TR:{tab_range}\t (if HC=1, TR=19. if HC=2, TR=18)\n\n")
+        log.write(f"run_count:{run_count}\t Start:[{start_timestamp_str}] - End:[{end_timestamp_str}]\t {first_name}, {last_name} - E:{email}\t P:{phone}\t HC:{history_choice} TR:{tab_range}\t (if HC=1, TR=19. if HC=2, TR=18) - max_loop:{max_loop} id:{rand_run_id}\n\n")
         log.close()
         
         run_count += 1

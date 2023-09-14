@@ -1,5 +1,6 @@
 hidden.py
 targets.txt
+targets/
 old_log_files/
 
 .vscode
