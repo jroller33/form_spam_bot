@@ -4,8 +4,7 @@ import time
 import random
 from datetime import datetime
 
-from custom_functions import tab_sleep, tab_rand_sleep, space_rand_sleep, write_rand_sleep, down_rand_sleep, enter_rand_sleep
-from custom_functions import generate_email, generate_phone, generate_random_date
+from custom_functions import tab_sleep, tab_rand_sleep, space_rand_sleep, write_rand_sleep, down_rand_sleep, enter_rand_sleep, generate_email, generate_phone, generate_random_date
 
 from names import first_name_list, last_name_list
 from hidden import alumni_form_url
@@ -15,7 +14,7 @@ max_loop = random.choice(range(50,100))
 rand_run_id = random.choice(range(1,10000))
 
 try:
-    while run_count < 1:      # run_count starts at 0 and is incremented at the end of this loop
+    while run_count < 4:      # run_count starts at 0 and is incremented at the end of this loop
     # while run_count < max_loop:      # run_count starts at 0 and is incremented at the end of this loop
 
         start_now = datetime.now()
