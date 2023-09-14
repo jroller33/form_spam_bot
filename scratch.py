@@ -51,7 +51,7 @@ while run_count < 20:
         print("!*!*!*!  ERROR IN HISTORY CHOICE  !*!*!*!*!")
 
 
-    log = open(f"ALUMNI_BOT_{current_date}_{rand_run_id}", 'a')
+    log = open(f"ALUMNI_BOT_{current_date}_{rand_run_id}.txt", 'a')
     log.write(f"[{timestamp_str}]\t {first_name}, {last_name} - E:{email}\t P:{phone}\t HC:{history_choice} TR:{tab_range}\t (if HC=1, TR=19. if HC=2, TR=18)\n\n")
 
     log.close()

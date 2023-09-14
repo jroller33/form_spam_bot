@@ -75,7 +75,7 @@ try:
         for tab in range(tab_range):           # 18 for HC 2, 19 for HC 1
             tab_rand_sleep()
 
-        enter_rand_sleep()
+        enter_rand_sleep()          # SUBMIT THE FORM
 
         time.sleep(5)      # wait for the form to submit
         pyautogui.getActiveWindow().close()  # close the Chrome window
