@@ -47,7 +47,12 @@ def down_rand_sleep():
 def enter_rand_sleep():
     pyautogui.press('enter')
     time.sleep(random.uniform(0.5, 2))
- 
+
+def write_rs_tab_rs(string):    # write_rand_sleep() then tab_rand_sleep()
+    write_rand_sleep(string)
+    tab_rand_sleep()
+
+
 # --------------------------------------
 email_providers = ["@gmail.com", "@outlook.com", "@yahoo.com", "@protonmail.com", "@aol.com", "@icloud.com"]
 def generate_email(first_name, last_name):

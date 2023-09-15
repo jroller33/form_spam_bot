@@ -55,6 +55,14 @@ try:
         pyautogui.click(866,606)
         time.sleep(random.uniform(1,6))
         
+        def write_rs_tab_rs(string):
+            write_rand_sleep(string)
+            tab_rand_sleep()
+        
+# def write_rand_sleep(string):
+#     pyautogui.write(string, random.uniform(0.1, 0.6))
+#     time.sleep(random.uniform(0.5, 2))
+
         write_rand_sleep(student_name)
         tab_rand_sleep()
         write_rand_sleep(first_name)
@@ -81,17 +89,33 @@ try:
         tab_rand_sleep()
         # enter_rand_sleep()  # SUBMIT FORM
 
-        # time.sleep(5)      # wait for the form to submit
-        # pyautogui.getActiveWindow().close()  # close the Chrome window
+        time.sleep(5)      # wait for the form to submit
+        pyautogui.getActiveWindow().close()  # close the Chrome window
 
-        # end_now = datetime.now()
-        # end_timestamp_str = f'{end_now:%H.%M.%S_%m.%d.%Y}'
-        # print(f"[*] This run: {run_count} has finished at [{end_timestamp_str}]\n\n")
+        end_now = datetime.now()
+        end_timestamp_str = f'{end_now:%H.%M.%S_%m.%d.%Y}'
+        print(f"[*] This run: {run_count} has finished at [{end_timestamp_str}]\n\n")
 
-        # log = open(f"ALUMNI_BOT_{current_date}_{rand_run_id}.txt", 'a')
-        # log.write(f"run_count:{run_count}\t Start:[{start_timestamp_str}] - End:[{end_timestamp_str}]\t {first_name}, {last_name} - E:{email}\t P:{phone}\t HC:{history_choice} TR:{tab_range}\t (if HC=1, TR=19. if HC=2, TR=18) - max_loop:{max_loop} id:{rand_run_id}\n\n")
-        # log.close()
-        
+        log = open(f"SPECIAL_BOT_{current_date}_{rand_run_id}.txt", 'a')
+        log.write(f"run_count:{run_count}\t Start:[{start_timestamp_str}] - End:[{end_timestamp_str}]\t [{first_name}, {last_name}] STU:{student_name} - E:{email}\t P:{phone}\t REL:{relationship}\t [{address}] - max_loop:{max_loop} id:{rand_run_id}\n\n")
+        log.close()
+
+
+        # # initialize the variables. every time this loop runs they will have different values
+        # first_name = random.choice(first_name_list)
+        # last_name = random.choice(last_name_list)
+        # student_name = f"{random.choice(first_name_list)} {random.choice(last_name_list)}"
+
+        # email = generate_email(first_name, last_name)
+        # phone = generate_phone()
+        # relationship = generate_relationship()
+
+        # address = generate_address()
+        # address1 = address["address1"]
+        # city = address["city"]
+        # state = address["state"]
+        # postal_code = address["postalCode"]
+
         run_count += 1
 
 except KeyboardInterrupt:       # press CTRL-C to exit while the bot is running
