@@ -72,7 +72,7 @@ def generate_phone():
     return f"{area_code}{num}"
 
 
-relatives = ["grandparent", "godparent", "uncle", "aunt", "great uncle", "great aunt"]
+relatives = ["grandparent", "godparent", "uncle", "aunt"]
 def generate_relationship():
     return random.choice(relatives)
 

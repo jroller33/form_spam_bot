@@ -44,9 +44,9 @@ try:
         print(f"[*] STU:{student_name} PAR:{first_name}, {last_name} - R:{relationship} E:{email} P:{phone}\n")
 
 
-        time.sleep(5)       # start new incognito Chrome window
+        time.sleep(1)       # start new incognito Chrome window
         subprocess.Popen(f"start chrome /incognito {test_special_url}", shell=True)    # opens a new incognito Chrome window
-        time.sleep(5)       # let the site finish loading
+        time.sleep(10)       # let the site finish loading
         pyautogui.getActiveWindow().maximize()  # maximize Chrome window
         time.sleep(5)
         pyautogui.press('pageup')
@@ -66,26 +66,6 @@ try:
         write_rs_tab_rs(state)
         write_rs_tab_rs(postal_code)
 
-        # write_rand_sleep(student_name)
-        # tab_rand_sleep()
-        # write_rand_sleep(first_name)
-        # tab_rand_sleep()
-        # write_rand_sleep(last_name)
-        # tab_rand_sleep()
-        # write_rand_sleep(email)
-        # tab_rand_sleep()
-        # write_rand_sleep(phone)
-        # tab_rand_sleep()
-        # write_rand_sleep(relationship)
-        # tab_rand_sleep()
-        # write_rand_sleep(address1)
-        # tab_rand_sleep()
-        # write_rand_sleep(city)
-        # tab_rand_sleep()
-        # write_rand_sleep(state)
-        # tab_rand_sleep()
-        # write_rand_sleep(postal_code)
-
         for_tab_sleep_range(2)
 
         space_rand_sleep()
@@ -100,7 +80,7 @@ try:
         print(f"[*] This run: {run_count} has finished at [{end_timestamp_str}]\n\n")
 
         log = open(f"SPECIAL_BOT_{current_date}_{rand_run_id}.txt", 'a')
-        log.write(f"run_count:{run_count}\t Start:[{start_timestamp_str}] - End:[{end_timestamp_str}]\t [{first_name}, {last_name}] STU:{student_name} - E:{email}\t P:{phone}\t REL:{relationship}\t [{address}] - max_loop:{max_loop} id:{rand_run_id}\n\n")
+        log.write(f"run_count:{run_count}\t Start:[{start_timestamp_str}] - End:[{end_timestamp_str}] [{first_name}, {last_name}] STU:{student_name} - E:{email} P:{phone} REL:{relationship} [{address1}, {city}, {state} {postal_code}] - max_loop:{max_loop} id:{rand_run_id}\n\n")
         log.close()
 
         run_count += 1
