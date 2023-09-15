@@ -52,8 +52,9 @@ try:
         pyautogui.press('pageup')
         time.sleep(0.5)
 
+        pyautogui.moveTo(866, 606, duration=0.5)
         pyautogui.click(866,606)
-        time.sleep(random.uniform(1,6))
+        time.sleep(random.uniform(1,4))
         
         write_rs_tab_rs(student_name)
         write_rs_tab_rs(first_name)
@@ -69,8 +70,12 @@ try:
         for_tab_sleep_range(2)
 
         space_rand_sleep()
-        tab_rand_sleep()
-        # enter_rand_sleep()  # SUBMIT FORM
+
+        pyautogui.press('pagedown')
+        pyautogui.press('pagedown')
+        
+        pyautogui.moveTo(645,391, duration=1)     # SUBMIT FORM
+        pyautogui.click(645,391)        
 
         # time.sleep(5)      # wait for the form to submit
         # pyautogui.getActiveWindow().close()  # close the Chrome window
