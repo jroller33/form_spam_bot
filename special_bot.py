@@ -77,8 +77,8 @@ try:
         pyautogui.moveTo(645,391, duration=1)     # SUBMIT FORM
         pyautogui.click(645,391)        
 
-        # time.sleep(5)      # wait for the form to submit
-        # pyautogui.getActiveWindow().close()  # close the Chrome window
+        time.sleep(5)      # wait for the form to submit
+        pyautogui.getActiveWindow().close()  # close the Chrome window
 
         end_now = datetime.now()
         end_timestamp_str = f'{end_now:%H.%M.%S_%m.%d.%Y}'
