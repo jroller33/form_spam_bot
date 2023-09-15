@@ -8,7 +8,7 @@ from datetime import datetime
 from custom_functions import tab_sleep, tab_rand_sleep, space_rand_sleep, write_rand_sleep, down_rand_sleep, enter_rand_sleep, write_rs_tab_rs, for_tab_sleep_range, generate_email, generate_phone, generate_relationship, generate_address
 
 from names import first_name_list, last_name_list
-from hidden import test_special_url
+from hidden import special_url
 
 run_count = 0
 # max_loop = random.choice(range(50,100))
@@ -36,16 +36,12 @@ try:
         city = address["city"]
         state = address["state"]
         postal_code = address["postalCode"]
-
-        print(f"[*] {address1}, {city}, {state} {postal_code}")
     
-        # history_choice = random.choice(range(1,3))
-
-        print(f"[*] STU:{student_name} PAR:{first_name}, {last_name} - R:{relationship} E:{email} P:{phone}\n")
+        print(f"[*] STU:{student_name} PAR:{first_name}, {last_name} - R:{relationship} E:{email} P:{phone}\n[{address1}, {city}, {state} {postal_code}]\n")
 
 
         time.sleep(1)       # start new incognito Chrome window
-        subprocess.Popen(f"start chrome /incognito {test_special_url}", shell=True)    # opens a new incognito Chrome window
+        subprocess.Popen(f"start chrome /incognito {special_url}", shell=True)    # opens a new incognito Chrome window
         time.sleep(10)       # let the site finish loading
         pyautogui.getActiveWindow().maximize()  # maximize Chrome window
         time.sleep(5)
@@ -82,7 +78,7 @@ try:
 
         end_now = datetime.now()
         end_timestamp_str = f'{end_now:%H.%M.%S_%m.%d.%Y}'
-        print(f"[*] This run: {run_count} has finished at [{end_timestamp_str}]\n\n")
+        print(f"[*] This run: {run_count} has finished at [{end_timestamp_str}]\n")
 
         log = open(f"SPECIAL_BOT_{current_date}_{rand_run_id}.txt", 'a')
         log.write(f"run_count:{run_count}\t Start:[{start_timestamp_str}] - End:[{end_timestamp_str}] [{first_name}, {last_name}] STU:{student_name} - E:{email} P:{phone} REL:{relationship} [{address1}, {city}, {state} {postal_code}] - max_loop:{max_loop} id:{rand_run_id}\n\n")
