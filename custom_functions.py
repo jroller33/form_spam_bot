@@ -52,6 +52,10 @@ def write_rs_tab_rs(string):    # write_rand_sleep() then tab_rand_sleep()
     write_rand_sleep(string)
     tab_rand_sleep()
 
+def for_tab_sleep_range(x):
+    for tab in range(x):
+        tab_rand_sleep()
+
 
 # --------------------------------------
 email_providers = ["@gmail.com", "@outlook.com", "@yahoo.com", "@protonmail.com", "@aol.com", "@icloud.com"]

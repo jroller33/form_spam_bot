@@ -5,7 +5,7 @@ import random
 from datetime import datetime
 
 
-from custom_functions import tab_sleep, tab_rand_sleep, space_rand_sleep, write_rand_sleep, down_rand_sleep, enter_rand_sleep, generate_email, generate_phone, generate_relationship, generate_address
+from custom_functions import tab_sleep, tab_rand_sleep, space_rand_sleep, write_rand_sleep, down_rand_sleep, enter_rand_sleep, write_rs_tab_rs, for_tab_sleep_range, generate_email, generate_phone, generate_relationship, generate_address
 
 from names import first_name_list, last_name_list
 from hidden import test_special_url
@@ -55,42 +55,45 @@ try:
         pyautogui.click(866,606)
         time.sleep(random.uniform(1,6))
         
-        def write_rs_tab_rs(string):
-            write_rand_sleep(string)
-            tab_rand_sleep()
-        
-# def write_rand_sleep(string):
-#     pyautogui.write(string, random.uniform(0.1, 0.6))
-#     time.sleep(random.uniform(0.5, 2))
+        write_rs_tab_rs(student_name)
+        write_rs_tab_rs(first_name)
+        write_rs_tab_rs(last_name)
+        write_rs_tab_rs(email)
+        write_rs_tab_rs(phone)
+        write_rs_tab_rs(relationship)
+        write_rs_tab_rs(address1)
+        write_rs_tab_rs(city)
+        write_rs_tab_rs(state)
+        write_rs_tab_rs(postal_code)
 
-        write_rand_sleep(student_name)
-        tab_rand_sleep()
-        write_rand_sleep(first_name)
-        tab_rand_sleep()
-        write_rand_sleep(last_name)
-        tab_rand_sleep()
-        write_rand_sleep(email)
-        tab_rand_sleep()
-        write_rand_sleep(phone)
-        tab_rand_sleep()
-        write_rand_sleep(relationship)
-        tab_rand_sleep()
-        write_rand_sleep(address1)
-        tab_rand_sleep()
-        write_rand_sleep(city)
-        tab_rand_sleep()
-        write_rand_sleep(state)
-        tab_rand_sleep()
-        write_rand_sleep(postal_code)
+        # write_rand_sleep(student_name)
+        # tab_rand_sleep()
+        # write_rand_sleep(first_name)
+        # tab_rand_sleep()
+        # write_rand_sleep(last_name)
+        # tab_rand_sleep()
+        # write_rand_sleep(email)
+        # tab_rand_sleep()
+        # write_rand_sleep(phone)
+        # tab_rand_sleep()
+        # write_rand_sleep(relationship)
+        # tab_rand_sleep()
+        # write_rand_sleep(address1)
+        # tab_rand_sleep()
+        # write_rand_sleep(city)
+        # tab_rand_sleep()
+        # write_rand_sleep(state)
+        # tab_rand_sleep()
+        # write_rand_sleep(postal_code)
 
-        for tab in range(3):
-            tab_rand_sleep()
+        for_tab_sleep_range(2)
+
         space_rand_sleep()
         tab_rand_sleep()
         # enter_rand_sleep()  # SUBMIT FORM
 
-        time.sleep(5)      # wait for the form to submit
-        pyautogui.getActiveWindow().close()  # close the Chrome window
+        # time.sleep(5)      # wait for the form to submit
+        # pyautogui.getActiveWindow().close()  # close the Chrome window
 
         end_now = datetime.now()
         end_timestamp_str = f'{end_now:%H.%M.%S_%m.%d.%Y}'
@@ -99,22 +102,6 @@ try:
         log = open(f"SPECIAL_BOT_{current_date}_{rand_run_id}.txt", 'a')
         log.write(f"run_count:{run_count}\t Start:[{start_timestamp_str}] - End:[{end_timestamp_str}]\t [{first_name}, {last_name}] STU:{student_name} - E:{email}\t P:{phone}\t REL:{relationship}\t [{address}] - max_loop:{max_loop} id:{rand_run_id}\n\n")
         log.close()
-
-
-        # # initialize the variables. every time this loop runs they will have different values
-        # first_name = random.choice(first_name_list)
-        # last_name = random.choice(last_name_list)
-        # student_name = f"{random.choice(first_name_list)} {random.choice(last_name_list)}"
-
-        # email = generate_email(first_name, last_name)
-        # phone = generate_phone()
-        # relationship = generate_relationship()
-
-        # address = generate_address()
-        # address1 = address["address1"]
-        # city = address["city"]
-        # state = address["state"]
-        # postal_code = address["postalCode"]
 
         run_count += 1
 
