@@ -4,19 +4,18 @@ import time
 import random
 from datetime import datetime
 
-
 from custom_functions import tab_sleep, tab_rand_sleep, space_rand_sleep, write_rand_sleep, down_rand_sleep, enter_rand_sleep, write_rs_tab_rs, for_tab_sleep_range, generate_email, generate_phone, generate_relationship, generate_address
 
 from names import first_name_list, last_name_list
 from hidden import special_url
 
 run_count = 0
-# max_loop = random.choice(range(50,100))
-max_loop = 1
+# max_loop = random.choice(range(100,150))
+max_loop = 4
 rand_run_id = random.choice(range(1,10000))
 
 try:
-    while run_count < max_loop:      # run_count starts at 0 and is incremented at the end of this loop
+    while run_count <= max_loop:      # run_count starts at 0 and is incremented at the end of this loop
         start_now = datetime.now()
         start_timestamp_str = f'{start_now:%H.%M.%S_%m.%d.%Y}'
         current_date = f'{start_now:%m.%d.%Y}'
@@ -72,10 +71,11 @@ try:
         
         pyautogui.moveTo(645,391, duration=1)     # SUBMIT FORM
         pyautogui.click(645,391)        
-
+        print("[*] Form submitted\n")
         time.sleep(5)      # wait for the form to submit
+        print("[*] about to close window")
         pyautogui.getActiveWindow().close()  # close the Chrome window
-
+        print("[*] Window closed")
         end_now = datetime.now()
         end_timestamp_str = f'{end_now:%H.%M.%S_%m.%d.%Y}'
         print(f"[*] This run: {run_count} has finished at [{end_timestamp_str}]\n")

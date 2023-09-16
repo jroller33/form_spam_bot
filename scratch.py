@@ -13,32 +13,41 @@ from custom_functions import generate_phone
 from custom_functions import generate_random_date
 
 from random_address import real_random_address
-
 from random_address import real_random_address_by_postal_code
 
 
 from names import first_name_list
 from names import last_name_list
 
+import pygetwindow
+
+# print(pygetwindow.getAllTitles())
+
+special_window = pygetwindow.getWindowsWithTitle('Special Persons - Aidan Montessori School - Google Chrome')[0]
+
+print(special_window)
+special_window.focus()
+special_window.maximize()
 
 rand_run_id = random.choice(range(1,1000))
 
 run_count = 0
 
-zip_codes = ["20001", "20002", "20009", "20010", "20012", "20017", "20018", "20020", "20032", "20036"]
+# zip_codes = ["20001", "20002", "20009", "20010", "20012", "20017", "20018", "20020", "20032", "20036"]
 
-while run_count < 20:
-    zip_code = random.choice(zip_codes)
-    address = real_random_address_by_postal_code(zip_code)
-    address1 = address["address1"]
-    city = address["city"]
-    state = address["state"]
-    postal_code = address["postalCode"]
+# while run_count < 20:
+#     zip_code = random.choice(zip_codes)
+#     address = real_random_address_by_postal_code(zip_code)
+#     address1 = address["address1"]
+#     city = address["city"]
+#     state = address["state"]
+#     postal_code = address["postalCode"]
 
-    print(f"{address1}, {city}, {state} {postal_code}")
-    print("\n")
+#     print(f"{address1}, {city}, {state} {postal_code}")
+#     print("\n")
 
-    run_count += 1
+#     run_count += 1
+
 # for x in range(500):
 #     history_choice = random.choice(range(1,3))
     
